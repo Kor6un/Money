@@ -34,6 +34,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Номер счета: " + numberAccount + "\nСостояние счета: " + money;
+        return "\tНомер счета: " + numberAccount + ",\tсумма: " + money + "\n";
     }
 }

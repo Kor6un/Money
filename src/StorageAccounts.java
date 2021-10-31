@@ -62,4 +62,20 @@ public class StorageAccounts {
     }
 
 
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+@Override
+    public String toString() {
+        if (accounts.isEmpty()) {
+            return  "У вас нет счетов";
+        } else {
+            String result = "Ваши счета:\n";
+            for (int i = 0; i < accounts.size(); i++) {
+                result += " " + accounts.get(i);
+            }
+            return result;
+        }
+    }
 }
