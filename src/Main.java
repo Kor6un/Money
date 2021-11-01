@@ -4,7 +4,7 @@ public class Main {
         StorageAccounts accounts = new StorageAccounts();
 
         Account a1 = accounts.createAccount("счет 1",1, 100);
-        Account a2 = accounts.createAccount("счет 2",2, 1500);
+       /* Account a2 = accounts.createAccount("счет 2",2, 1500);
         Account a3 = accounts.createAccount("счет 3",3);
         Account a4 = accounts.createAccount("счет 4",4);
         Account a5 = accounts.createAccount("Счет Антона",5,5400);
@@ -27,6 +27,22 @@ public class Main {
 
         System.out.println(accounts.findAccount("Счет Антона"));
         System.out.println(accounts.updateAccount(5));
-        System.out.println(accounts.findAccount("Счет Антона"));
+        System.out.println(accounts.findAccount("Счет Антона"));*/
+
+        Category category = new Category("Food");
+
+
+        Operations operations = new Operations(a1, category);
+
+        operations.transaction(50);
+
+        System.out.println(a1);
+        System.out.println(operations);
+
+       /* operations.transaction(1500);*/
+        System.out.println(a1);
+
+        System.out.println(a1.getHistory());
+
     }
 }

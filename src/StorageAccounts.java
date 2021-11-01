@@ -81,16 +81,10 @@ public class StorageAccounts {
         } else {
             Account changedAccount = findAccount(numberAccount);
             if(changedAccount != null) {
-                int choice = getChoiceOperation();
-                changedAccount.pullMoney(1000.0);
                 return  changedAccount;
             }
         }
         return null;
-    }
-
-    private int getChoiceOperation() {
-        return 0;
     }
 
     @Override
