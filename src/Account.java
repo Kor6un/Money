@@ -1,15 +1,30 @@
 public class Account {
+
+    private String name;
     private final int numberAccount;
     private double money;
 
-    public Account(int numberAccount) {
+    //todo
+    //добавить коллекцию на историю операций по счету
+
+    public Account(String name, int numberAccount) {
+        this.name = name;
         this.numberAccount = numberAccount;
         this.money = 0.0;
     }
 
-    public Account(int numberAccount, double money) {
+    public Account(String name,int numberAccount, double money) {
+        this.name = name;
         this.numberAccount = numberAccount;
         this.money = money;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getNumberAccount() {
@@ -34,6 +49,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "\tНомер счета: " + numberAccount + ",\tсумма: " + money + "\n";
+        return "\tНазвание счета: " + name + ",\tномер счета: " + numberAccount + ",\tсумма: " + money + "\n";
     }
 }

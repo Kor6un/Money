@@ -2,20 +2,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StorageAccounts {
+
     private final List<Account> accounts = new ArrayList<>();
 
     public List<Account> getAccounts() {
         return accounts;
     }
 
-    public Account createAccount(int numberAccount) {
-        return new Account(numberAccount);
+    public Account createAccount(String name, int numberAccount) {
+        return new Account(name, numberAccount);
     }
 
-    public void addAccount(int numberAccount) {
-        Account account = new Account(numberAccount);
+    public Account createAccount(String name, int numberAccount, double money) {
+        return new Account(name, numberAccount, money);
+    }
+
+    public void addAccount(String name, int numberAccount) {
+        Account account = new Account(name, numberAccount);
         if (accounts.contains(account)) {
             System.out.println("Такой счет уже существует!");
+        } else {
+            accounts.add(account);
+        }
+    }
+
+    public void addAccount(String name, int numberAccount, double money) {
+        Account account = new Account(name, numberAccount, money);
+        if (accounts.contains(account)) {
+            System.out.println("Такой счет уже существует!");
+        } else {
+            accounts.add(account);
+        }
+    }
+
+    public void addAccount(Account account) {
+        if (accounts.contains(account)) {
+            System.out.println("Такой счет уже существует!");
+        } else if (findAccount(account.getNumberAccount()) != null) {
+            System.out.println("Такой номер счета уже существует!");
         } else {
             accounts.add(account);
         }
@@ -33,18 +57,22 @@ public class StorageAccounts {
     }
 
     public Account findAccount(int numberAccount) {
-        if (accounts.isEmpty()) {
-            System.out.println("У вас нет счетов");
-        } else {
-            for (int i = 0; i < accounts.size(); i++) {
-                if (accounts.get(i).getNumberAccount() == numberAccount) {
-                    return accounts.get(i);
-                } else {
-                    System.out.println("Счет не найден! Проверьте введенные данные.");
-                }
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getNumberAccount() == numberAccount) {
+                return accounts.get(i);
             }
         }
         return null;
+    }
+
+    public List<Account> findAccount(String name) {
+        List<Account> findAccounts = new ArrayList<>();
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getName() == name) {
+                findAccounts.add(accounts.get(i));
+            }
+        }
+        return findAccounts;
     }
 
     public Account updateAccount(int numberAccount) {
@@ -53,20 +81,19 @@ public class StorageAccounts {
         } else {
             Account changedAccount = findAccount(numberAccount);
             if(changedAccount != null) {
-                changedAccount.putMoney(100.0);
-                System.out.println("Вы успешно добавили денег на счет!");
+                int choice = getChoiceOperation();
+                changedAccount.pullMoney(1000.0);
                 return  changedAccount;
             }
         }
         return null;
     }
 
-
-    public void addAccount(Account account) {
-        accounts.add(account);
+    private int getChoiceOperation() {
+        return 0;
     }
 
-@Override
+    @Override
     public String toString() {
         if (accounts.isEmpty()) {
             return  "У вас нет счетов";
