@@ -6,7 +6,7 @@ public class Account {
     private String name;
     private final int numberAccount;
     private double money;
-    private final List<Double> history = new ArrayList<>();
+    private final List<OperationHistory> history = new ArrayList<>();
 
     public Account(String name, int numberAccount) {
         this.name = name;
@@ -14,7 +14,7 @@ public class Account {
         this.money = 0.0;
     }
 
-    public List<Double> getHistory() {
+    public List<OperationHistory> getHistory() {
         return history;
     }
 
@@ -45,7 +45,8 @@ public class Account {
     }
 
     public void putMoney(double quantity) {
-        setMoney(getMoney() + quantity);
+        double result = getMoney() + quantity;
+        setMoney(result);
     }
 
     public void pullMoney(double quantity) {

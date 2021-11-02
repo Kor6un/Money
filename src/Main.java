@@ -4,10 +4,11 @@ public class Main {
         StorageAccounts accounts = new StorageAccounts();
 
         Account a1 = accounts.createAccount("счет 1",1, 100);
-       /* Account a2 = accounts.createAccount("счет 2",2, 1500);
+        Account a2 = accounts.createAccount("счет 2",2, 1000);
         Account a3 = accounts.createAccount("счет 3",3);
         Account a4 = accounts.createAccount("счет 4",4);
-        Account a5 = accounts.createAccount("Счет Антона",5,5400);
+        Account a5 = accounts.createAccount("Счет Антона",5,1000);
+        Account a10 = accounts.createAccount("Max", 15, 15000);
 
         accounts.addAccount(a1);
         accounts.addAccount(a2);
@@ -20,29 +21,31 @@ public class Main {
         Account a7 = new Account("Счет Антона", 8, 5000);
         Account a8 = new Account("Счет Zmey", 9);
 
+        accounts.addAccount(a10);
+
         accounts.addAccount(a7);
         accounts.addAccount(a8);
 
-        System.out.println(accounts);
+       // System.out.println(accounts);
 
         System.out.println(accounts.findAccount("Счет Антона"));
         System.out.println(accounts.updateAccount(5));
-        System.out.println(accounts.findAccount("Счет Антона"));*/
+        System.out.println(accounts.findAccount("Счет Антона"));
 
         Category category = new Category("Food");
 
+        Operations operations = new Operations(a5, category);
 
-        Operations operations = new Operations(a1, category);
+        System.out.println(a5);
+    /*  operations.transaction(100);
+        operations.transaction(200);
+        operations.transaction(500);*/
+        operations.transaction(1500);
 
-        operations.transaction(50);
+        //System.out.println(operations);
 
-        System.out.println(a1);
-        System.out.println(operations);
+        System.out.println(a5);
 
-       /* operations.transaction(1500);*/
-        System.out.println(a1);
-
-        System.out.println(a1.getHistory());
-
+        System.out.println(a5.getHistory());
     }
 }

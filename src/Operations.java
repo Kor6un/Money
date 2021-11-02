@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class Operations {
@@ -49,12 +50,17 @@ public class Operations {
     public void transaction(double quantity) {
         this.money = quantity;
         int choice = getChoiceOperation();
+        OperationHistory history;
         if (choice == 1) {
             account.putMoney(quantity);
+            //account.getHistory().add(money);
+            Date date = new Date();
+            history = new OperationHistory(category, quantity, date);
+            account.getHistory().add(history);
         } else {
             account.pullMoney(quantity);
             category.getHistoryCategory().add(quantity);
-            account.getHistory().add(quantity);
+            //account.getHistory().add(quantity);
         }
     }
 
