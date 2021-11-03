@@ -17,7 +17,6 @@ public class Operations {
         this.category = category;
     }
 
-
     public  int getChoiceOperation() {
         Scanner scanner = new Scanner(System.in);
         final int MAX = 2;
