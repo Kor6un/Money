@@ -29,22 +29,20 @@ public class Main {
        // System.out.println(accounts);
 
         System.out.println(accounts.findAccount("Счет Антона"));
-        System.out.println(accounts.updateAccount(5));
-        System.out.println(accounts.findAccount("Счет Антона"));
+        /*System.out.println(accounts.updateAccount(5));
+        System.out.println(accounts.findAccount("Счет Антона"));*/
 
         Category category = new Category("Food");
 
-        Operations operations = new Operations(a5, category);
+        Operations operations = new Operations(a5);
 
-        System.out.println(a5);
-    /*  operations.transaction(100);
+        /*System.out.println(a5);
+        operations.transaction(100);
         operations.transaction(200);
         operations.transaction(500);*/
-        operations.transaction(1500);
-
-        //System.out.println(operations);
-
+        operations.transaction();
         System.out.println(a5);
+        //System.out.println(operations);
 
         System.out.println(a5.getHistory());
     }

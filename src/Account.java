@@ -28,6 +28,11 @@ public class Account {
         return name;
     }
 
+    public void addHistory(OperationHistory operationHistory)
+    {
+        history.add(operationHistory);
+    }
+
     public void setName(String name) {
         this.name = name;
     }

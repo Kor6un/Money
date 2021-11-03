@@ -17,12 +17,6 @@ public class Operations {
         this.category = category;
     }
 
-    public Operations(Account account, Category category, int choiceOperation, int choiceOperation1, double money) {
-        this.account = account;
-        this.category = category;
-        this.choiceOperation = choiceOperation1;
-        this.money = money;
-    }
 
     public  int getChoiceOperation() {
         Scanner scanner = new Scanner(System.in);
@@ -31,7 +25,7 @@ public class Operations {
         boolean isCorrect;
         int choice = 0;
         do {
-            System.out.print("Выбирите:\t1 - поподнить счет,\t2 - потратить: ");
+            System.out.print("Выбирите:\t1 - пополнить счет,\t2 - потратить: ");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
                 isCorrect = true;
@@ -47,21 +41,27 @@ public class Operations {
         return choice;
     }
 
-    public void transaction(double quantity) {
-        this.money = quantity;
-        int choice = getChoiceOperation();
+    public void transaction() {
+        Scanner scanner = new Scanner(System.in);
+        choiceOperation = getChoiceOperation();
         OperationHistory history;
-        if (choice == 1) {
-            account.putMoney(quantity);
-            //account.getHistory().add(money);
-            Date date = new Date();
-            history = new OperationHistory(category, quantity, date);
-            account.getHistory().add(history);
+        if (choiceOperation == 1) {
+            System.out.println("Введите сумму");
+            money = Double.parseDouble(scanner.nextLine());
+            account.putMoney(money);
+            category = new Category("Пополнение счета");
+            history = new OperationHistory(category, money);
+            account.addHistory(history);
         } else {
-            account.pullMoney(quantity);
-            category.getHistoryCategory().add(quantity);
-            //account.getHistory().add(quantity);
+            System.out.println("Введите название категории");
+            category = new Category(scanner.nextLine());
+            System.out.println("Введите сумму");
+            money = Double.parseDouble(scanner.nextLine());
+            account.pullMoney(money);
+            history = new OperationHistory(category, money);
+            account.addHistory(history);
         }
+        scanner.close();
     }
 
     @Override

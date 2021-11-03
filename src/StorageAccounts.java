@@ -36,9 +36,9 @@ public class StorageAccounts {
     }
 
     public void addAccount(Account account) {
-        if (accounts.contains(account)) {
+        /*if (accounts.contains(account)) {
             System.out.println("Такой счет уже существует!");
-        } else if (findAccount(account.getNumberAccount()) != null) {
+        } else */if (findAccount(account.getNumberAccount()) != null) {
             System.out.println("Такой номер счета уже существует!");
         } else {
             accounts.add(account);
